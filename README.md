@@ -53,13 +53,24 @@ The possible values for types are as follows:
 Gets the user who performed the action, this is the the short name of the user as returned by User.getShortName(). If the user does not exist, no records will be returned. On Tab load the users that are available in this case are automaticaly populated.
 
 ## After
-The start date to filter after (only more recent events will be returned.) "Today" - Date.today (at 00:00:00) "Previous Day" - Date.today.prev_day "Previous Month" - Date.today.prev_month "Previous Year" - Date.today.prev_year "*" - Wildcard for all time.
+The start date to filter after (only more recent events will be returned.)
+
+"Today" - Date.today (at 00:00:00)
+
+"Previous Day" - Date.today.prev_day
+
+"Previous Month" - Date.today.prev_month
+
+"Previous Year" - Date.today.prev_year
+
+"*" - Wildcard for all time.
+
 Note:By Default Today is chosen, as potentially a lot of records may be returned.
 
 # Exporting
 ## Export View
-After specifying your Filters and the results view populated you can then click the Export View button
-This will prompt if you would like to export details.
+After specifying your Filters and the results view populated you can then click the Export View button. This will prompt if you would like to export details.
+
 No - Export the view as it is, sort order with only the items in the filter. Yes - Export the view and its details, affected item count and the full list of affected guids separated by ;
 
 ## Export just a single event log
@@ -70,16 +81,21 @@ On the right of the tab is a Go button, the drop down beside this has an option 
 
 ## Open Tab with affected items
 On the right of the tab is a Go button, the drop down beside this has an option "New Tab with affected items". This will open a tab with all the items affected by the action.
+
 If no items are affected a message will be displayed.
 
 ## Tag affected items
 On the right of the tab is a Go button, the drop down beside this has an option "Tag affected items".
+
 This will Prompt for a tag name (pipe for subfolders are supported).
+
 Warning:Using this option will result in a new Audit History log entry being made
 
 ## Apply Custom Metadata to affected items
 On the right of the tab is a Go button, the drop down beside this has an option "Custom Metadata affected items".
+
 This will Prompt for a Custom Metadata name and value to place in that value (type=string)
+
 Warning:Using this option will result in a new Audit History log entry being made
 
 
