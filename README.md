@@ -27,16 +27,27 @@ Then run using the scripts\Exact Wordlist Tab
 
 ## Type
 The possible values for types are as follows:
+
 "openSession" - occurs at the start of a session with a case (i.e. when the case is opened.)
+
 "closeSession" - occurs at the end of a session with a case (i.e. when the case is closed.)
+
 "loadData" - occurs when data is loaded into the case.
+
 "search" - occurs when a search is performed.
+
 "annotation" - occurs when items are annotated (e.g. tagged.)
+
 "export" - occurs when data or metadata is exported out of the case.
+
 "import" - occurs when data or metadata is imported into the case. The difference from "loadData" is that with "import", the data is directly imported without processing.
+
 "delete" - occurs when data in the case is deleted.
+
 "script" - occurs when a script is executed.
+
 "printPreview" - occurs when a print preview action is executed.
+
 
 ## User
 Gets the user who performed the action, this is the the short name of the user as returned by User.getShortName(). If the user does not exist, no records will be returned. On Tab load the users that are available in this case are automaticaly populated.
