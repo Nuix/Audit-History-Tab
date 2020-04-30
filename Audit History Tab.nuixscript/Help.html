@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+<head>
+<title>Audit History Tab</title>
+<link rel="stylesheet" type="text/css" href="Resources/css/prism.css">
+<link rel="stylesheet" type="text/css" href="Resources/css/bootstrap.min.css">
+<style>
+	body {padding-top:70px;}
+	h1.page-header {font-weight:bold;border-bottom:black 1px solid;}
+	a[name] {
+		display: block;
+		position: relative;
+		top: -40px;
+		visibility: hidden;
+	}
+
+  .thumbnail.with-caption {
+    display: inline-block;
+    background: #f5f5f5;
+  }
+  .thumbnail.with-caption p {
+    margin: 0;
+    padding-top: 0.5em;
+  }
+  .thumbnail.with-caption small:before {
+    content: '\2014 \00A0';
+  }
+  .thumbnail.with-caption small {
+    width: 100%;
+    text-align: right;
+    display: inline-block;
+    color: #999;
+  }
+  .footer {margin-top:70px;}
+</style>
+</head>
+<body>
+
+<div class="container">
+<div class="jumbotron">
+<h1 style="display:inline;vertical-align:bottom;margin-left:20px;">Audit History Tab</h1>
+</div>
+<h1>Table of Contents</h1>
+	<ul>
+		<li><a href="#Filtering"><b style="font-size:1.1em">Filtering</b></a>
+			<ul>
+				<li><a href="#Filtering_Type"><b style="font-size:1.1em">Type</b></a></li>
+				<li><a href="#Filtering_User"><b style="font-size:1.1em">User</b></a></li>
+				<li><a href="#Filtering_After"><b style="font-size:1.1em">After</b></a></li>
+			</ul>
+		</li>
+		<li><a href="#Exporting"><b style="font-size:1.1em">Exporting</b></a>
+			<ul>
+				<li><a href="#Exporting_View"><b style="font-size:1.1em">Export View</b></a></li>
+				<li><a href="#Exporting_Single"><b style="font-size:1.1em">Export just a single event log</b></a></li>
+				<li><a href="#Exporting_Single"><b style="font-size:1.1em">Export affected guids from a single event log</b></a></li>
+				<li><a href="#Exporting_tab"><b style="font-size:1.1em">Open Tab with affected items</b></a></li>
+				<li><a href="#Exporting_tag"><b style="font-size:1.1em">Tag affected items</b></a></li>
+				<li><a href="#Exporting_meta"><b style="font-size:1.1em">Apply Custom Metadata to affected items</b></a></li>
+				<li><a href="#Exporting_View"><b style="font-size:1.1em">Export View</b></a></li>
+			</ul>
+		</li>
+		<li><a href="#about_this_version"><b style="font-size:1.1em">Version Information</b></a></li>
+	</ul>
+<div style="page-break-after:always;"></div>
+<a name="Filtering"></a><h1 class="page-header">Filtering</h1>
+
+<a name="Filtering_Type"></a><h2 class="page-header">Type</h2>
+The possible values for types are as follows:<br />
+"openSession" - occurs at the start of a session with a case (i.e. when the case is opened.)<br />
+"closeSession" - occurs at the end of a session with a case (i.e. when the case is closed.)<br />
+"loadData" - occurs when data is loaded into the case.<br />
+"search" - occurs when a search is performed.<br />
+"annotation" - occurs when items are annotated (e.g. tagged.)<br />
+"export" - occurs when data or metadata is exported out of the case.<br />
+"import" - occurs when data or metadata is imported into the case. The difference from "loadData" is that with "import", the data is directly imported without processing.<br />
+"delete" - occurs when data in the case is deleted.<br />
+"script" - occurs when a script is executed.<br />
+"printPreview" - occurs when a print preview action is executed.<br />
+
+<a name="Filtering_User"></a><h2 class="page-header">User</h2>
+Gets the user who performed the action, this is the the short name of the user as returned by User.getShortName().
+If the user does not exist, no records will be returned.
+On Tab load the users that are available in this case are automaticaly populated. 
+
+<a name="Filtering_After"></a><h2 class="page-header">After</h2>
+The start date to filter after (only more recent events will be returned.)
+"Today" - Date.today (at 00:00:00)
+"Previous Day" - Date.today.prev_day
+"Previous Month" - Date.today.prev_month
+"Previous Year" - Date.today.prev_year
+"*" - Wildcard for all time.
+<div class="alert alert-info" role="alert">
+	<p><strong>Note:</strong>By Default Today is chosen, as potentially a lot of records may be returned.</p>
+</div>
+
+<a name="Exporting"></a><h1 class="page-header">Exporting</h1>
+
+<a name="Exporting_View"></a><h2 class="page-header">Export View</h2>
+After specifying your Filters and the results view populated you can then click the Export View button <br />
+This will prompt if you would like to export details. <br />
+No - Export the view as it is, sort order with only the items in the filter.
+Yes - Export the view and its details, affected item count and the full list of affected guids separated by ;
+<a name="Exporting_Single"></a><h2 class="page-header">Export just a single event log</h2>
+On the right of the tab is a Go button, the drop down beside this has an option "Export Log Details", This will export the headers for this item and all it's details. Will not export affected items. 
+<a name="Exporting_Single"></a><h2 class="page-header">Export affected guids from a single event log</h2>
+On the right of the tab is a Go button, the drop down beside this has an option "Export GUIDs of affected items", this will export the guids in a text file line deliminated.
+<a name="Exporting_tab"></a><h2 class="page-header">Open Tab with affected items</h2>
+On the right of the tab is a Go button, the drop down beside this has an option "New Tab with affected items". This will open a tab with all the items affected by the action. <br />
+If no items are affected a message will be displayed.<br />
+<a name="Exporting_tag"></a><h2 class="page-header">Tag affected items</h2>
+On the right of the tab is a Go button, the drop down beside this has an option "Tag affected items". <br />
+This will Prompt for a tag name (pipe for subfolders are supported).
+<div class="alert alert-warning" role="alert">
+	<p><strong>Warning:</strong>Using this option will result in a new Audit History log entry being made</p>
+</div>
+<a name="Exporting_meta"></a><h2 class="page-header">Apply Custom Metadata to affected items</h2>
+On the right of the tab is a Go button, the drop down beside this has an option "Custom Metadata affected items". <br />
+This will Prompt for a Custom Metadata name and value to place in that value (type=string)<br />
+<div class="alert alert-warning" role="alert">
+	<p><strong>Warning:</strong>Using this option will result in a new Audit History log entry being made</p>
+</div>
+
+<a name="about_this_version"></a><h1 class="page-header">Version Information</h1>
+Name: Audit History Tab<br />
+Version: 1.0<br />
+Released: October 2016<br />
+Purpose: To simplify the Case history and export behaviour, combining all known requests for scripts into one hopefully simple to use audit history tab.<br />
+
+<hr/>
+	<div class="footer">
+	<i class="pull-left">Cameron Stiller</i>
+	<i class="pull-right">&copy;2016 Nuix Software. All Rights Reserved</i>
+	</div>
+</div>
+</body>
+</html>
