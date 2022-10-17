@@ -8,21 +8,32 @@ import javax.swing.JLabel
 import javax.swing.JButton
 import javax.swing.JComboBox
 #import javax.swing.ImageIcon
-import com.teamdev.jxbrowser.chromium.Browser;
-import com.teamdev.jxbrowser.chromium.swing.BrowserView;
+
 import javax.swing.SwingUtilities
 import javax.swing.JFileChooser
 java_import javax.swing.JOptionPane
 require 'date'
 
 def loadhelp()
-	body=JPanel.new(java.awt.GridLayout.new(0,1))
-	browser=Browser.new()
-	browser.cookieStorage().deleteAll()
-	browserview=BrowserView.new(browser)
-	body.add(browserview)
-	browser.loadURL("#{File.dirname(__FILE__)}\\Help.html")
-	$window.addTab("Help",body)
+	link="#{File.dirname(__FILE__)}\\Help.html"
+	begin
+		import com.teamdev.jxbrowser.chromium.Browser;
+		import com.teamdev.jxbrowser.chromium.swing.BrowserView;
+		body=JPanel.new(java.awt.GridLayout.new(0,1))
+		browser=Browser.new()
+		browser.cookieStorage().deleteAll()
+		browserview=BrowserView.new(browser)
+		body.add(browserview)
+		browser.loadURL(link)
+		$window.addTab("Help",body)
+	rescue Exception => ex
+		puts "jxbrowser isn't in this build of workstation"
+		begin
+			system "explorer \"#{link}\""
+		rescue Exception => ex
+			puts "Help is located here:\n#{link}"
+		end
+	end
 end
 
 def flat_hash(obj,f=[],g={})

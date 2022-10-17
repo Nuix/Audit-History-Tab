@@ -1,13 +1,15 @@
 Audit History Tab
 ==============
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0) ![This script was last tested in Nuix 8.4](https://img.shields.io/badge/Script%20Tested%20in%20Nuix-8.4-green.svg)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0) ![This script was last tested in Nuix 9.6](https://img.shields.io/badge/Script%20Tested%20in%20Nuix-9.6-green.svg)
 
 View the GitHub project [here](https://github.com/Nuix/Audit-History-Tab) or download the latest release [here](https://github.com/Nuix/Audit-History-Tab/releases).
 
 # Overview
 
 A tab for workbench that will allow you to access the history records for export and analysis. To simplify the Case history and export behaviour, combining all known requests for scripts into one hopefully simple to use audit history tab.
+
+Help is provided here and upon first run. If there are any issues loading help it can be found under the Audit History Tab.nuixscript\Help.html
 
 # Getting Started
 
