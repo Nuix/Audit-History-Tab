@@ -1,24 +1,24 @@
-import javax.swing.JPanel
-import javax.swing.JTable
-import javax.swing.JScrollPane
-import javax.swing.GroupLayout
-import javax.swing.JLabel
-import java.awt.Dimension
-import javax.swing.JLabel
-import javax.swing.JButton
-import javax.swing.JComboBox
-#import javax.swing.ImageIcon
+java_import javax.swing.JPanel
+java_import javax.swing.JTable
+java_import javax.swing.JScrollPane
+java_import javax.swing.GroupLayout
+java_import javax.swing.JLabel
+java_import java.awt.Dimension
+java_import javax.swing.JLabel
+java_import javax.swing.JButton
+java_import javax.swing.JComboBox
+#java_import javax.swing.ImageIcon
 
-import javax.swing.SwingUtilities
-import javax.swing.JFileChooser
+java_import javax.swing.SwingUtilities
+java_import javax.swing.JFileChooser
 java_import javax.swing.JOptionPane
 require 'date'
 
 def loadhelp()
 	link="#{File.dirname(__FILE__)}\\Help.html"
 	begin
-		import com.teamdev.jxbrowser.chromium.Browser;
-		import com.teamdev.jxbrowser.chromium.swing.BrowserView;
+		java_import com.teamdev.jxbrowser.chromium.Browser;
+		java_import com.teamdev.jxbrowser.chromium.swing.BrowserView;
 		body=JPanel.new(java.awt.GridLayout.new(0,1))
 		browser=Browser.new()
 		browser.cookieStorage().deleteAll()
